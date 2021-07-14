@@ -29,8 +29,8 @@ function rot13(str) {
         Z: 'M'
     }
     let cipherStr = str.split(''); // split the array
-    let result = ""
-        // loop through each letter in the array
+    let result = "";
+    // loop through each letter in the array
     cipherStr.forEach(letter => {
         // check if it's an alphabet and look for the corresponding value 
         if ((/[a-zA-Z]/).test(letter)) {
@@ -38,7 +38,7 @@ function rot13(str) {
         }
         // add the non alphabets :)
         else {
-            result += letter
+            result += letter;
         }
     });
 
