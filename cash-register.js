@@ -11,13 +11,14 @@ function checkCashRegister(price, cash, cid) {
             "TWENTY": 2000,
             "ONE HUNDRED": 10000
         }
+        // multiplied everything by 100 to work with whole numbers
         // calculate  the change(difference between the cash and price of the product)
     let change = cash * 100 - price * 100;
-    let changeCheck = change;
+    let changeCheck = change; // save a copy of the change
     let changeArr = [];
     let status = '';
 
-    let cidSum = 0;
+    let cidSum = 0; // stores the sum of all the money in cid
     let filteredCid = cid.filter(elem => elem[1] !== 0).reverse();
 
     filteredCid.forEach(elem => {
