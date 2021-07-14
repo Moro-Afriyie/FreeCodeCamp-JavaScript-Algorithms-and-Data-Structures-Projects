@@ -19,6 +19,7 @@ function checkCashRegister(price, cash, cid) {
     let status = '';
 
     let cidSum = 0; // stores the sum of all the money in cid
+    // filter the cid array so to remove all the currency with zeros
     let filteredCid = cid.filter(elem => elem[1] !== 0).reverse();
 
     filteredCid.forEach(elem => {
