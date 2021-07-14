@@ -23,8 +23,8 @@ function checkCashRegister(price, cash, cid) {
     let filteredCid = cid.filter(elem => elem[1] !== 0).reverse();
 
     filteredCid.forEach(elem => {
-        let curr = elem[0];
-        let currSum = elem[1] * 100;
+        let curr = elem[0]; // get the currency denomination
+        let currSum = elem[1] * 100; // get the value of the currency
         cidSum += currSum;
         let amount = 0;
         while (change >= currencyUnit[curr] && currSum > 0) {
