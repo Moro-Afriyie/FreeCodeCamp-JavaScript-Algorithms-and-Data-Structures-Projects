@@ -12,8 +12,8 @@ function checkCashRegister(price, cash, cid) {
             "ONE HUNDRED": 10000
         }
         // calculate  the change(difference between the cash and price of the product)
-    let changeSum = cash * 100 - price * 100;
-    let changeSumCheck = changeSum;
+    let change = cash * 100 - price * 100;
+    let changeCheck = change;
     let changeArr = [];
     let status = '';
 
@@ -25,9 +25,9 @@ function checkCashRegister(price, cash, cid) {
         let currSum = elem[1] * 100;
         cidSum += currSum;
         let amount = 0;
-        while (changeSum >= currencyUnit[curr] && currSum > 0) {
+        while (change >= currencyUnit[curr] && currSum > 0) {
             amount += currencyUnit[curr];
-            changeSum -= currencyUnit[curr];
+            change -= currencyUnit[curr];
             currSum -= currencyUnit[curr];
         }
         if (amount !== 0) {
@@ -35,10 +35,10 @@ function checkCashRegister(price, cash, cid) {
         }
     });
 
-    if (changeSum > 0) {
+    if (change > 0) {
         status = 'INSUFFICIENT_FUNDS';
         changeArr = [];
-    } else if (changeSum == 0 && changeSumCheck == cidSum) {
+    } else if (change == 0 && changeCheck == cidSum) {
         status = 'CLOSED';
         changeArr = cid;
     } else {
