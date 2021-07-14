@@ -14,7 +14,7 @@ function checkCashRegister(price, cash, cid) {
         // calculate  the change(difference between the cash and price of the product)
     let changeSum = cash * 100 - price * 100;
     let changeSumCheck = changeSum;
-    let change = [];
+    let changeArr = [];
     let status = '';
 
     let cidSum = 0;
@@ -31,22 +31,22 @@ function checkCashRegister(price, cash, cid) {
             currSum -= currencyUnit[curr];
         }
         if (amount !== 0) {
-            change.push([curr, amount / 100]);
+            changeArr.push([curr, amount / 100]);
         }
     });
 
     if (changeSum > 0) {
         status = 'INSUFFICIENT_FUNDS';
-        change = [];
+        changeArr = [];
     } else if (changeSum == 0 && changeSumCheck == cidSum) {
         status = 'CLOSED';
-        change = cid;
+        changeArr = cid;
     } else {
         status = 'OPEN';
     }
-    return { 'status': status, 'change': change };
+    return { 'status': status, 'change': changeArr };
 }
-checkCashRegister(19.5, 20, [
+console.log(checkCashRegister(19.5, 20, [
     ["PENNY", 1.01],
     ["NICKEL", 2.05],
     ["DIME", 3.1],
@@ -56,4 +56,4 @@ checkCashRegister(19.5, 20, [
     ["TEN", 20],
     ["TWENTY", 60],
     ["ONE HUNDRED", 100]
-]);
+]));
