@@ -1,17 +1,17 @@
 function checkCashRegister(price, cash, cid) {
     // multiplied the unit by 100 to make it easier to work with whole numbers
     const currencyUnit = {
-        "PENNY": 1,
-        "NICKEL": 5,
-        "DIME": 10,
-        "QUARTER": 25,
-        "ONE": 100,
-        "FIVE": 500,
-        "TEN": 1000,
-        "TWENTY": 2000,
-        "ONE HUNDRED": 10000
-    }
-
+            "PENNY": 1,
+            "NICKEL": 5,
+            "DIME": 10,
+            "QUARTER": 25,
+            "ONE": 100,
+            "FIVE": 500,
+            "TEN": 1000,
+            "TWENTY": 2000,
+            "ONE HUNDRED": 10000
+        }
+        // calculate  the change(difference between the cash and price of the product)
     let changeSum = cash * 100 - price * 100;
     let changeSumCheck = changeSum;
     let change = [];
